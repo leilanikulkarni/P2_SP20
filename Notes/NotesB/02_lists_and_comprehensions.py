@@ -84,7 +84,6 @@ print(first + last)  # smooshes them together
 
 print(my_names + my_numbers)
 
-
 # ITERATING THROUGH LISTS
 # make a list of numbers 0 through 9
 # make empty list, make for loop, append the index to the for loop
@@ -172,8 +171,6 @@ for i in range(100):
     my_list.append([random.randrange(1, 7), random.randrange(1, 7)])
 
 print(my_list)
-
-
 
 my_list = [[random.randrange(1, 7), random.randrange(1, 7)] for x in range(100)]
 print(my_list)
