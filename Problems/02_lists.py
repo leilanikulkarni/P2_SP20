@@ -80,19 +80,11 @@ print(a_num)
 
 # Find the number of prime numbers in num_list?
 # Hint: One way is to just start removing the ones that aren't
-for num in num_list:
-    if num % 2 == 0:
-        del num_list[num_list.index(num)]
-    elif num % 3 == 0:
-        del num_list[num_list.index(num)]
-    elif num % 5 == 0:
-        del num_list[num_list.index(num)]
-    elif num % 7 == 0:
-        del num_list[num_list.index(num)]
-    elif num % 13 == 0:
-        del num_list[num_list.index(num)]
-    elif num % 17 == 0:
-        del num_list[num_list.index(num)]  # didn't get rid of all of them but got rid of most
+
+for i in range(2, 9993):
+    for num in num_list:
+        if num % i == 0:
+            del num_list[num_list.index(num)]
 
 prime_numbers = len(num_list)
 print(prime_numbers)
@@ -100,17 +92,11 @@ print(prime_numbers)
 
 # Find the number of palindromes
 # Hint: This may be easier to do with strings
-num_list.sort()
-palindrome_list = []
+
+palindrome_list = 0
 for num in num_list:
-    num = " "
-    reversed_num = num.reverse()
-    if num == reversed_num:
-        palindrome_list.append(num)
+    num = str(num)
+    if num[1] == num[2] and num[0] == num[3]:
+        palindrome_list += 1
 
-print(len(palindrome_list))
-
-
-
-
-
+print(palindrome_list)
