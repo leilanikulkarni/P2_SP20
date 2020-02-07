@@ -24,10 +24,8 @@ print(my_new_list)
 # The Problems directory contains a file called "number_list.py"
 # import this file which contains num_list
 from Problems import number_list
-# there's an error which says the objects aren't subscriptable
 # Print the last 5 numbers in num_list
-# copy_num_list = [x for x in number_list.num_list]
-# print(copy_num_list)
+
 num_list = number_list.num_list
 if __name__ == "__main__":
     print(num_list[-5:])
@@ -83,7 +81,9 @@ print(a_num)
 
 for i in range(2, 9993):
     for num in num_list:
-        if num % i == 0:
+        if num == i:
+            continue
+        elif num % i == 0:
             del num_list[num_list.index(num)]
 
 prime_numbers = len(num_list)
@@ -93,10 +93,11 @@ print(prime_numbers)
 # Find the number of palindromes
 # Hint: This may be easier to do with strings
 
-palindrome_list = 0
+palindromes_list = []
+num_list = number_list.num_list
 for num in num_list:
-    num = str(num)
-    if num[1] == num[2] and num[0] == num[3]:
-        palindrome_list += 1
+    palindrome = str(num)
+    if palindrome[0] == palindrome[-1] and palindrome[1] and palindrome[-2]:
+        palindromes_list.append(palindrome)
 
-print(palindrome_list)
+print(len(palindromes_list))
