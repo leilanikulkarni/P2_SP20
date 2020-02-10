@@ -5,8 +5,6 @@ from random import *  # imports everything locally
 import random as r  # use your own keyword
 import import_me
 
-
-
 if __name__ == "__main__":
     # This code only runs when you run THIS FILE first
     print("Hello")
