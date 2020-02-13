@@ -103,22 +103,6 @@ if found:
 else:
     print(key, "not found.")
 
-# Reading in Alice in Wonderland
-import re
-
-
-def split_line(line):
-    # returns a list of all the words in line
-    return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
-
-
-print(split_line("Hello, how are you?"))
-
-file = open("../resources/alice_in_wonderland")
-
-for line in file:
-    line = line.strip().upper()
-    # print(line.split())
 
 
 
