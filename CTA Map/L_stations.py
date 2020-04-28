@@ -20,19 +20,18 @@ import folium
 
 with open('CTA_-_System_Information_-_List_of__L__Stops (1).csv') as f:
     reader = csv.reader(f)
-    data = list(reader)
+    data = list(reader)  # converted the csv file
 
-cta_map = folium.Map(location=[41.8781, -87.6298], zoom_start=11)
+cta_map = folium.Map(location=[41.8781, -87.6298], zoom_start=11) # create the baseline for the folium map
 
-print(data.pop(0))
-print(data)
-lat_longs = [eval(x[-1]) for x in data]
-popups = [x[2] for x in data]
+print(data.pop(0))  # print the headers
+lat_longs = [eval(x[-1]) for x in data]  # find the latitude and longitude of each coordinate
+popups = [x[2] for x in data]  # find the names of each train station
 
-colors = []
+colors = []  # make a colors list
 for stop in data:
     if stop[7]:
-        colors.append('red')  # problem: all of the colors are this (so problem is up there)
+        colors.append('red')
     if stop[8]:
         colors.append('blue')
     if stop[9]:
@@ -50,18 +49,16 @@ for stop in data:
     if stop[15]:
         colors.append('orange')
     else:
-        colors.append('black')
+        colors.append('black')  # if the stop color is true, color becomes that, but if all are false, color is black
 
-print(colors)
-# print(lat_longs[0])
+print(colors) # print colors
 
 for i in range(len(lat_longs)):
     folium.Marker(location=lat_longs[i],
                   popup='<b>' + popups[i] + '</b>',
-                  icon=(folium.Icon(prefix='fa', icon='train', color=colors[i]))).add_to(cta_map)
+                  icon=(folium.Icon(prefix='fa', icon='train', color=colors[i]))).add_to(cta_map)  # print each stop with
+    # the icon, color, and name, then add to the cta map
 
 cta_map.save('train-map.html')
 
 # If you have extra time, try to put some html into the popup.
-
-# popups[i]
